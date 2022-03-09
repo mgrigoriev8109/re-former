@@ -9,6 +9,7 @@
 
   <label for="password">Password:</label>
   <input type="password" id="password" name="password" placeholder="you@example.com">
-
+  
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Submit">
 </form>
