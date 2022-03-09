@@ -1,4 +1,6 @@
 <form action="/users" method="post" accept-charset="UTF-8">
+  <!-- The above action and method should raise an InvalidAuthenticityToken error, but don't-->
+  <!-- My theory is that it's in some way related to Rails 7 and TURBO_STREAM-->
   <label for="username">Username:</label>
   <input type="text" id="username" name="username">
   
