@@ -2,13 +2,13 @@
   <!-- The above action and method should raise an InvalidAuthenticityToken error, but don't-->
   <!-- My theory is that it's in some way related to Rails 7 and TURBO_STREAM-->
   <label for="username">Username:</label>
-  <input type="text" id="username" name="username">
+  <input type="text" id="username" name="user[username]">
   
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email">
+  <input type="email" id="email" name="user[email]" placeholder="you@example.com">
 
   <label for="password">Password:</label>
-  <input type="password" id="password" name="password" placeholder="you@example.com">
+  <input type="password" id="password" name="user[password]">
   
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Submit">
