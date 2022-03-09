@@ -1,6 +1,4 @@
-<form action="/users" method="post" accept-charset="UTF-8" data-turbo="false">
-  <!-- The above action and method should raise an InvalidAuthenticityToken error, but don't-->
-  <!-- My theory is that it's in some way related to Rails 7 and TURBO_STREAM-->
+<!-- <form action="/users" method="post" accept-charset="UTF-8" data-turbo="false">
   <label for="username">Username:</label>
   <input type="text" id="username" name="user[username]">
   
@@ -12,4 +10,18 @@
   
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Submit">
-</form>
+</form> 
+The above is a commented out HTML form, which will now be replaced with Rails form-->
+
+<%= form_tag("/users", method: "post") do %>
+  <%= label_tag(:username, "Username")%>
+  <%= text_field_tag(:username) %> 
+
+  <%= label_tag(:email, "Email")%> 
+  <%= email_field(:email, :email) %>
+
+  <%= label_tag(:password, "Password")%> 
+  <%= password_field_tag(:password) %>
+
+  <%= submit_tag("Submit") %>
+<% end %>
