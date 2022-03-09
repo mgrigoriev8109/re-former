@@ -11,8 +11,10 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Submit">
 </form> 
-The above is a commented out HTML form, which will now be replaced with Rails form-->
+The above is a commented out HTML form, which will now be replaced with Rails form
+-->
 
+<!--
 <%= form_tag("/users", method: "post") do %>
   <%= label_tag(:username, "Username")%>
   <%= text_field_tag(:username) %> 
@@ -24,4 +26,19 @@ The above is a commented out HTML form, which will now be replaced with Rails fo
   <%= password_field_tag(:password) %>
 
   <%= submit_tag("Submit") %>
+<% end %>
+The above is a commented out form_tag form, which will now be replaced with Rails form
+-->
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, "Username:" %>
+  <%= form.text_field :username, :value => "bobdoe" %>
+
+  <%= form.label :email, "Email:" %>
+  <%= form.email_field :email, placeholder: "bobdoe@gmail.com" %>
+
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+
+  <%= form.submit "Submit" %>
 <% end %>
