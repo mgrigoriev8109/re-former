@@ -1,0 +1,44 @@
+<!-- <form action="/users" method="post" accept-charset="UTF-8" data-turbo="false">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="user[username]">
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="user[email]" placeholder="you@example.com">
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="user[password]">
+  
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Submit">
+</form> 
+The above is a commented out HTML form, which will now be replaced with Rails form
+-->
+
+<!--
+<%= form_tag("/users", method: "post") do %>
+  <%= label_tag(:username, "Username")%>
+  <%= text_field_tag(:username) %> 
+
+  <%= label_tag(:email, "Email")%> 
+  <%= email_field(:email, :email) %>
+
+  <%= label_tag(:password, "Password")%> 
+  <%= password_field_tag(:password) %>
+
+  <%= submit_tag("Submit") %>
+<% end %>
+The above is a commented out form_tag form, which will now be replaced with Rails form
+-->
+
+<%= form_with model: @users do |form| %>
+  <%= form.label :username, "Username:" %>
+  <%= form.text_field :username, :value => "bobdoe" %>
+
+  <%= form.label :email, "Email:" %>
+  <%= form.email_field :email, placeholder: "bobdoe@gmail.com" %>
+
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+
+  <%= form.submit "Submit" %>
+<% end %>
