@@ -30,7 +30,19 @@ The above is a commented out HTML form, which will now be replaced with Rails fo
 The above is a commented out form_tag form, which will now be replaced with Rails form
 -->
 
-<%= form_with model: @users do |form| %>
+<%= form_with model: @user do |form| %>
+ <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <%= form.label :username, "Username:" %>
   <%= form.text_field :username, :value => "bobdoe" %>
 
